@@ -41,11 +41,10 @@ properties of Ada and better compare it against the other two languages:
 
 #figure(
   grid(
-    columns: 1,
-    row-gutter: 1em,
-    align: center,
-    image("screenshots/ada-code.png", height: 6cm),
-    image("screenshots/ada-output.png", height: 3cm),
+    columns: (auto, auto),
+    column-gutter: 1em,
+    align: bottom + center,
+    image("screenshots/ada-code.png"), image("screenshots/ada-output.png"),
   ),
   caption: [Ada source code (top) and program output (bottom).],
 )
@@ -66,23 +65,43 @@ toward a declarative, functional style.
 
 = Haskell
 
-// TODO: Haskell section.
-//
-// - Hello world snippet (see the Scheme section for the pattern).
-// - The recursion program chosen for Haskell.
-// - Screenshots: doc/screenshots/haskell-code.png and haskell-output.png.
-// - 2-3 lines on readability, comparing Haskell to Scheme and Ada.
-//
-// #figure(
-//   grid(
-//     columns: (auto, auto),
-//     column-gutter: 1em,
-//     align: bottom + center,
-//     image("screenshots/haskell-code.png", height: 6cm),
-//     image("screenshots/haskell-output.png", height: 6cm),
-//   ),
-//   caption: [Haskell source code (left) and program output (right).],
-// )
+Like Scheme, Haskell has a REPL (GHCi) that evaluates expressions directly, so
+hello world can be a one-liner; compiled with GHC, it is defined as a `main`
+action:
+
+```haskell
+main :: IO ()
+main = putStrLn "Hello, world from Haskell!"
+```
+
+With the recursion program chosen (Fibonacci), we can see more of the unique
+properties of Haskell and better compare it against the other two languages:
+
+#figure(
+  grid(
+    columns: (auto, auto),
+    column-gutter: 1em,
+    align: bottom + center,
+    image("screenshots/haskell-code.png"), image("screenshots/haskell-output.png"),
+  ),
+  caption: [Haskell source code (left) and program output (right).],
+)
+
+The function definition is a direct transcription of the mathematical
+recurrence: each case of the recursion is its own equation, selected by pattern
+matching on the argument rather than by an explicit `if/else` like Ada's. The
+type signature `fib :: Integer -> Integer` states up front that the function
+takes one integer and returns one, though `Integer` is unbounded like Scheme's
+numbers, so the "positive input" constraint is still enforced by a runtime
+check rather than by the type the way Ada's `1 .. 12` subtype does it.
+
+In comparing the three, Haskell reads closest to mathematics: shorter and more
+declarative than Ada, with none of Scheme's parentheses, though its dense
+infix notation and operator-heavy style (`fib (n - 1) + fib (n - 2)`) can be
+intimidating in the same way Scheme's symbols are. Its types give it the
+self-documenting quality of Ada while staying functional-first like Scheme,
+but the constraint checking lives at runtime with Scheme rather than in the
+type system with Ada.
 
 = Scheme
 
@@ -102,8 +121,7 @@ languages:
     columns: (auto, auto),
     column-gutter: 1em,
     align: bottom + center,
-    image("screenshots/scheme-code.png"),
-    image("screenshots/scheme-output.png"),
+    image("screenshots/scheme-code.png"), image("screenshots/scheme-output.png"),
   ),
   caption: [Scheme source code (left) and program output (right).],
 )

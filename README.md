@@ -71,6 +71,18 @@ gnatmake -o hello src/ada/hello.adb && ./hello
 gnatmake -o recursions src/ada/recursions.adb && ./recursions
 ```
 
+The Haskell programs use GHC, and can also be run as scripts with `runghc`:
+
+```sh
+# Run from the repo root, since artifacts are left in CWD:
+ghc -O0 -o hello src/haskell/hello.hs && ./hello
+ghc -O0 -o recursions src/haskell/recursions.hs && ./recursions
+
+# Or interpreted, no artifacts:
+runghc src/haskell/hello.hs
+runghc src/haskell/recursions.hs
+```
+
 ## Requirements (Paraphrased from Canvas)
 
 - Choose three languages from below
