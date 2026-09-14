@@ -1,0 +1,4 @@
+release/
+.direnv/
+result
+doc/main.pdf
