@@ -13,7 +13,7 @@ programs live under `src/<language>/`.
   Latin Modern Roman, Times New Roman, then DejaVu Serif, so the document still
   compiles if Libertinus is not installed.
 - Per-language toolchains for the programs (e.g. [Guile](https://www.gnu.org/software/guile/)
-  for Scheme).
+  for Scheme, [GNAT](https://gcc.gnu.org/onlinedocs/gnat_ugn.html) for Ada).
 
 ### Build
 
@@ -61,6 +61,14 @@ nix run .#recursions
 # Without Nix (requires guile on PATH):
 guile --no-auto-compile src/scheme/hello.scm
 guile --no-auto-compile src/scheme/recursions.scm
+```
+
+The Ada programs use GNAT:
+
+```sh
+# Run from the repo root, since artifacts are left in CWD:
+gnatmake -o hello src/ada/hello.adb && ./hello
+gnatmake -o recursions src/ada/recursions.adb && ./recursions
 ```
 
 ## Requirements (Paraphrased from Canvas)

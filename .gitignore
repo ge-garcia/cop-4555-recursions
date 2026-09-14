@@ -2,3 +2,7 @@ release/
 .direnv/
 result
 doc/main.pdf
+*.o
+*.ali
+hello
+recursions
