@@ -6,8 +6,8 @@
       (string-append (->binary (quotient n 2))
                      (number->string (remainder n 2)))))
 
-(define (display-to-binary n)
-  (display (string-append (number->string n) " -> " (->binary n)))
-  (newline))
-
-(for-each display-to-binary (iota 16 0))
+(newline)
+(display "Enter a natural number: ")
+(define n (read))
+(display (string-append (number->string n) " -> " (->binary n)))
+(newline)
